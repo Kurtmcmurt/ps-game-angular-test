@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import '~normalize.css';
+
+$grid: (
+  "psxlg": 1260px,
+  "pslg": 960px,
+  "psmd": 768px,
+  "pssm": 520px,
+  "psxs": 340px 
+);
+
+$colors: (
+  "darkcyan": #025159,
+  "cyan": #03A696,
+  "darkyellow": #F28705,
+  "orange": #F25D27,
+  "red": #F20505
+);
+
+.container-full {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+@each $name, $width in $grid {
+  .container-#{$name} {
+    display: block;
+    width: 100%;
+    max-width: $width;
+    margin: auto;
+  }
+}
+
+@each $name, $color in $colors {
+  .ps-bg-color-#{$name} {
+    background: $color;
+  }
+  .ps-text-color-#{$name} {
+    color: $color
+  }
+}
+
+$spacing: (
+  "none": 0px !important,
+  "small": 10px !important,
+  "medium": 20px !important,
+  "large": 40px !important
+);
+
+@each $name, $space in $spacing {
+  .ps-m-#{$name} {
+    margin: $space
+  }
+  .ps-mt-#{$name} {
+    margin-top: $space
+  }
+  .ps-ml-#{$name} {
+    margin-left: $space
+  }
+  .ps-mr-#{$name} {
+    margin-right: $space
+  }
+  .ps-mb-#{$name} {
+    margin-bottom: $space
+  }
+  // padding
+  .ps-p-#{$name} {
+    padding: $space
+  }
+  .ps-pt-#{$name} {
+    padding-top: $space
+  }
+  .ps-pb-#{$name} {
+    padding-bottom: $space
+  }
+  .ps-pl-#{$name} {
+    padding-left: $space
+  }
+  .ps-pr-#{$name} {
+    padding-right: $space
+  }
+}
+
+$flexpropsalign: (
+  "center": center !important,
+);
+  
+@each $name, $flexprop in $flexpropsalign {
+  .ps-align-items-#{$name} {
+    align-items: $flexprop
+  }
+  .ps-align-content-#{name} {
+    align-content: $flexprop
+  }
+}
+
+$flexpropsjustify: (
+  "stretch": stretch !important,
+  "center": center !important, 
+  "space-between": space-between !important
+);
+    
+@each $name, $flexprop in $flexpropsjustify {
+  .ps-justify-content-#{$name} {
+    justify-content: $flexprop
+  }
+}
+
+$display: (
+  "flex": flex !important,
+  "block": block !important,
+  "inline-block": inline-block !important,
+  "inline-flex": inline-flex !important,
+  "table": table !important
+);
+
+@each $name, $dstyle in $display {
+  .ps-d-#{$name} {
+    display: $dstyle
+  }
+}
+
+.ps-list-style-none li {
+  list-style-type: none;
+}
+
+.ps-menu-container {
+  a {
+    padding: 10px;
+  }
+}
