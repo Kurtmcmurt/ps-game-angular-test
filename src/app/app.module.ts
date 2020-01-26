@@ -3,10 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { gameComponent } from './gameComponent/game.component';
-import { welcomeComponent } from './welcomeComponent/welcome.component';
-import { headerComponent } from './constantComponents/headerComponent/header.component';
-import { footerComponent } from './constantComponents/footerComponent/footer.component';
+import { gameComponent } from './components/gameComponent/game.component';
+import { welcomeComponent } from './components/welcomeComponent/welcome.component';
+import { headerComponent } from './components/constantComponents/headerComponent/header.component';
+import { footerComponent } from './components/constantComponents/footerComponent/footer.component';
+
+import { StoreModule } from '@ngrx/store';
+import { playersReducer } from './reducers/players.reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { footerComponent } from './constantComponents/footerComponent/footer.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({
+      players: playersReducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
